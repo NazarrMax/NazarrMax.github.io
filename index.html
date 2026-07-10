@@ -544,7 +544,7 @@
             <div class="grid-2col">
                 <div class="card">
                     <div class="card-title"><i class="fas fa-utensils"></i> Приготовление</div>
-                    <p>Растворить содержимое одного стока (40 г) в 200 мл воды (20–25 °C), тщательно перемешать.</p>
+                    <p>Растворить содержимое одного пакетика (40 г) в 200 мл воды (20–25 °C), тщательно перемешать.</p>
                     <p style="margin-top:10px;"><strong>Рекомендация:</strong> не более 3 стоков в сутки.</p>
                 </div>
                 <div class="card">
@@ -586,24 +586,20 @@
         const tabs = document.querySelectorAll('.tab-content');
 
         function activateTab(tabId) {
-            // 1. Сначала мгновенно прокручиваем страницу вверх
             window.scrollTo(0, 0);
             document.documentElement.scrollTop = 0;
             document.body.scrollTop = 0;
 
-            // 2. Затем переключаем вкладки (контент изменит высоту, но ползунок уже наверху)
             tabs.forEach(t => t.classList.remove('active'));
             const target = document.getElementById(tabId);
             if (target) target.classList.add('active');
-
-            // 3. Обновляем активную кнопку
+            
             const buttons = nav.querySelectorAll('button');
             buttons.forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.tab === tabId);
             });
         }
 
-        // Обработка кликов
         nav.addEventListener('click', (e) => {
             const btn = e.target.closest('button');
             if (!btn) return;
@@ -614,7 +610,6 @@
             }
         });
 
-        // При загрузке
         const hash = window.location.hash.replace('#', '');
         if (hash && document.getElementById(hash)) {
             activateTab(hash);
@@ -623,7 +618,6 @@
             if (firstTab) activateTab(firstTab.id);
         }
 
-        // При нажатии назад/вперёд
         window.addEventListener('popstate', () => {
             const h = window.location.hash.replace('#', '');
             if (h && document.getElementById(h)) {
