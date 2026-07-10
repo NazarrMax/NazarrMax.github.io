@@ -314,10 +314,10 @@
             display: block;
         }
 
-        /* ----- Индивидуальная настройка для фото Лупандиной ----- */
+        /* Индивидуальная настройка для фото Лупандиной */
         .creator-card:nth-child(3) .creator-photo {
             display: flex;
-            align-items: flex-end;    /* прижимаем к низу */
+            align-items: flex-end;
             justify-content: center;
         }
         .creator-card:nth-child(3) .creator-photo img {
@@ -699,7 +699,7 @@
             <div class="grid-2col">
                 <div class="card">
                     <div class="card-title"><i class="fas fa-utensils"></i> Приготовление</div>
-                    <p>Растворить содержимое одного стакана (40 г) в 200 мл воды (20–25 °C), тщательно перемешать.</p>
+                    <p>Растворить содержимое одного стока (40 г) в 200 мл воды (20–25 °C), тщательно перемешать.</p>
                     <p style="margin-top: 10px;"><strong>Рекомендация:</strong> не более 3 стоков в сутки.</p>
                 </div>
                 <div class="card">
@@ -735,23 +735,47 @@
     </div>
 </footer>
 
-<!-- Переключение вкладок -->
+<!-- Переключение вкладок с гарантированной прокруткой вверх -->
 <script>
     (function() {
         const nav = document.getElementById('tabNav');
         const tabs = document.querySelectorAll('.tab-content');
 
         function activateTab(tabId) {
+            // Скрыть все вкладки
             tabs.forEach(t => t.classList.remove('active'));
+            // Показать нужную
             const target = document.getElementById(tabId);
             if (target) target.classList.add('active');
 
+            // Обновить активную кнопку
             const buttons = nav.querySelectorAll('button');
             buttons.forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.tab === tabId);
             });
+
+            // ===== ГАРАНТИРОВАННАЯ ПРОКРУТКА ВВЕРХ =====
+            // Функция, которая выполняет прокрутку
+            function scrollToTop() {
+                // Способ 1: стандартный метод
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Способ 2: для старых браузеров (и как резерв)
+                document.documentElement.scrollTop = 0;
+                document.body.scrollTop = 0;
+                // Способ 3: прокрутка к элементу <main>
+                const mainEl = document.querySelector('main');
+                if (mainEl) {
+                    mainEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            // Выполняем прокрутку несколько раз с задержкой
+            scrollToTop();                     // сразу
+            setTimeout(scrollToTop, 100);      // через 0.1 сек
+            setTimeout(scrollToTop, 300);      // через 0.3 сек
         }
 
+        // Клик по кнопкам навигации
         nav.addEventListener('click', (e) => {
             const btn = e.target.closest('button');
             if (!btn) return;
@@ -762,6 +786,7 @@
             }
         });
 
+        // Обработка при загрузке и при изменении истории
         const hash = window.location.hash.replace('#', '');
         if (hash && document.getElementById(hash)) {
             activateTab(hash);
