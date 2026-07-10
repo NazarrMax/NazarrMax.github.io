@@ -85,7 +85,7 @@
         .logo-img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* логотип вписывается без обрезания */
+            object-fit: contain;
         }
 
         .logo-text {
@@ -310,8 +310,20 @@
         .creator-photo img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* фото создателей заполняет рамку */
+            object-fit: cover;
             display: block;
+        }
+
+        /* ----- Индивидуальная настройка для фото Лупандиной ----- */
+        .creator-card:nth-child(3) .creator-photo {
+            display: flex;
+            align-items: flex-end;    /* прижимаем к низу */
+            justify-content: center;
+        }
+        .creator-card:nth-child(3) .creator-photo img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
         }
 
         .creator-info {
@@ -372,7 +384,7 @@
         .support-img-placeholder img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* логотипы фондов заполняют рамку */
+            object-fit: cover;
             display: block;
         }
 
@@ -687,7 +699,7 @@
             <div class="grid-2col">
                 <div class="card">
                     <div class="card-title"><i class="fas fa-utensils"></i> Приготовление</div>
-                    <p>Растворить содержимое одного стока (40 г) в 200 мл воды (20–25 °C), тщательно перемешать.</p>
+                    <p>Растворить содержимое одного стакана (40 г) в 200 мл воды (20–25 °C), тщательно перемешать.</p>
                     <p style="margin-top: 10px;"><strong>Рекомендация:</strong> не более 3 стоков в сутки.</p>
                 </div>
                 <div class="card">
