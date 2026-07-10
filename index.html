@@ -6,7 +6,6 @@
     <title>БУСТЕР — высокобелковый тонизирующий напиток</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ----- Общие сбросы и переменные ----- */
         * {
             margin: 0;
             padding: 0;
@@ -15,15 +14,14 @@
 
         :root {
             --primary: #1a3b4f;
-            --primary-light: #2a5a74;
             --accent: #f39c12;
             --bg-light: #f8f9fa;
             --text-dark: #1e1e2a;
             --text-muted: #4a4a5a;
             --border-radius: 12px;
-            --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            --box-shadow: 0 8px 20px rgba(0,0,0,0.06);
             --transition: 0.25s ease;
-            --font-sans: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            --font-sans: 'Segoe UI', Roboto, system-ui, sans-serif;
         }
 
         body {
@@ -43,16 +41,15 @@
             width: 100%;
         }
 
-        /* ----- Шапка / навигация ----- */
         header {
             background: white;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: blur(4px);
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255,255,255,0.92);
         }
 
         .header-inner {
@@ -73,15 +70,10 @@
         .logo-img-placeholder {
             width: 80px;
             height: 80px;
-            background: none;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
             overflow: hidden;
+            flex-shrink: 0;
         }
-
         .logo-img {
             width: 100%;
             height: 100%;
@@ -95,9 +87,7 @@
             color: var(--primary);
             white-space: nowrap;
         }
-        .logo-text span {
-            color: var(--accent);
-        }
+        .logo-text span { color: var(--accent); }
 
         nav {
             display: flex;
@@ -117,16 +107,14 @@
             transition: var(--transition);
             font-family: inherit;
         }
-
         nav button:hover {
-            background: rgba(26, 59, 79, 0.06);
+            background: rgba(26,59,79,0.06);
             color: var(--primary);
         }
-
         nav button.active {
             background: var(--primary);
             color: white;
-            box-shadow: 0 4px 10px rgba(26, 59, 79, 0.15);
+            box-shadow: 0 4px 10px rgba(26,59,79,0.15);
         }
 
         @media (max-width: 700px) {
@@ -134,19 +122,11 @@
                 flex-direction: column;
                 align-items: stretch;
             }
-            .logo-wrapper {
-                justify-content: center;
-            }
-            nav {
-                justify-content: center;
-            }
-            .logo-text {
-                font-size: 1.1rem;
-                white-space: normal;
-            }
+            .logo-wrapper { justify-content: center; }
+            nav { justify-content: center; }
+            .logo-text { font-size: 1.1rem; white-space: normal; }
         }
 
-        /* ----- Основной контент ----- */
         main {
             flex: 1;
             padding: 40px 0 60px;
@@ -156,25 +136,20 @@
             display: none;
             animation: fadeUp 0.3s ease;
         }
-
-        .tab-content.active {
-            display: block;
-        }
+        .tab-content.active { display: block; }
 
         @keyframes fadeUp {
             0% { opacity: 0.3; transform: translateY(12px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ----- Карточки и блоки ----- */
         .card {
             background: white;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             padding: 28px 32px;
             margin-bottom: 28px;
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0,0,0,0.02);
         }
 
         .card-title {
@@ -186,10 +161,7 @@
             align-items: center;
             gap: 10px;
         }
-        .card-title i {
-            color: var(--accent);
-            font-size: 1.3rem;
-        }
+        .card-title i { color: var(--accent); }
 
         .grid-2col {
             display: grid;
@@ -198,41 +170,14 @@
         }
 
         @media (max-width: 700px) {
-            .grid-2col {
-                grid-template-columns: 1fr;
-            }
-            .card {
-                padding: 20px;
-            }
+            .grid-2col { grid-template-columns: 1fr; }
+            .card { padding: 20px; }
         }
 
-        /* ----- Таблицы ----- */
-        .table-wrap {
-            overflow-x: auto;
-            margin: 12px 0 8px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-        }
-
-        th, td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid #eef2f6;
-        }
-
-        th {
-            background: #f2f5f9;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
+        .table-wrap { overflow-x: auto; margin: 12px 0 8px; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #eef2f6; }
+        th { background: #f2f5f9; font-weight: 600; color: var(--primary); }
 
         .badge {
             display: inline-block;
@@ -269,21 +214,15 @@
             padding: 20px 24px;
             margin: 12px 0;
         }
-        .contact-block p {
-            margin: 6px 0;
-        }
-        .contact-block strong {
-            color: var(--primary);
-        }
+        .contact-block p { margin: 6px 0; }
+        .contact-block strong { color: var(--primary); }
 
-        /* ----- Фотографии создателей ----- */
         .creators-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             margin: 20px 0 10px;
         }
-
         .creator-card {
             background: white;
             border-radius: var(--border-radius);
@@ -293,10 +232,7 @@
             border: 1px solid #f0f3f7;
             transition: var(--transition);
         }
-        .creator-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-        }
+        .creator-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
 
         .creator-photo {
             height: 200px;
@@ -313,8 +249,6 @@
             object-fit: cover;
             display: block;
         }
-
-        /* Индивидуальная настройка для фото Лупандиной */
         .creator-card:nth-child(3) .creator-photo {
             display: flex;
             align-items: flex-end;
@@ -326,50 +260,25 @@
             object-fit: cover;
         }
 
-        .creator-info {
-            padding: 16px 12px 18px;
-        }
-        .creator-info .name {
-            font-weight: 600;
-            font-size: 1.05rem;
-            color: var(--primary);
-        }
-        .creator-info .role {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 4px;
-        }
+        .creator-info { padding: 16px 12px 18px; }
+        .creator-info .name { font-weight: 600; font-size: 1.05rem; color: var(--primary); }
+        .creator-info .role { color: var(--text-muted); font-size: 0.9rem; margin-top: 4px; }
 
-        @media (max-width: 700px) {
-            .creators-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        @media (max-width: 480px) {
-            .creators-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width: 700px) { .creators-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .creators-grid { grid-template-columns: 1fr; } }
 
-        /* ----- Блок поддержки ----- */
-        .support-card {
-            background: #f5f8fc;
-            border: 1px solid #e2e8f0;
-        }
-
+        .support-card { background: #f5f8fc; border: 1px solid #e2e8f0; }
         .support-block {
             display: flex;
             align-items: center;
             gap: 40px;
             flex-wrap: wrap;
         }
-
         .support-images {
             display: flex;
             gap: 20px;
             flex: 0 0 auto;
         }
-
         .support-img-placeholder {
             width: 160px;
             height: 160px;
@@ -387,43 +296,18 @@
             object-fit: cover;
             display: block;
         }
-
-        .support-text {
-            flex: 1;
-            min-width: 200px;
-        }
-        .support-text p {
-            margin: 6px 0;
-            line-height: 1.5;
-            color: var(--text-dark);
-        }
-        .support-text strong {
-            color: var(--primary);
-        }
+        .support-text { flex: 1; min-width: 200px; }
+        .support-text p { margin: 6px 0; line-height: 1.5; color: var(--text-dark); }
+        .support-text strong { color: var(--primary); }
 
         @media (max-width: 700px) {
-            .support-block {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .support-images {
-                justify-content: center;
-            }
+            .support-block { flex-direction: column; align-items: center; text-align: center; }
+            .support-images { justify-content: center; }
         }
 
-        /* ----- Дополнительно ----- */
-        .mt-2 { margin-top: 20px; }
-        .mb-1 { margin-bottom: 12px; }
         .text-small { font-size: 0.9rem; color: var(--text-muted); }
+        hr { border: none; border-top: 1px solid #e2e8f0; margin: 24px 0; }
 
-        hr {
-            border: none;
-            border-top: 1px solid #e2e8f0;
-            margin: 24px 0;
-        }
-
-        /* ----- Футер ----- */
         footer {
             background: white;
             border-top: 1px solid #eef2f6;
@@ -432,10 +316,6 @@
             color: var(--text-muted);
             font-size: 0.9rem;
         }
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
     </style>
 </head>
 <body>
@@ -443,7 +323,6 @@
 <header>
     <div class="container header-inner">
         <div class="logo-wrapper">
-            <!-- Логотип (замените имя файла на своё) -->
             <div class="logo-img-placeholder">
                 <img src="images/logo.jpg" class="logo-img" alt="Логотип МИЛК ЭНЕРДЖИ">
             </div>
@@ -459,39 +338,32 @@
 
 <main>
     <div class="container">
-
-        <!-- ========== ВКЛАДКА 1: ГЛАВНАЯ ========== -->
+        <!-- ===== ВКЛАДКА 1 ===== -->
         <section id="tab1" class="tab-content active">
             <div class="card">
-                <div class="card-title">
-                    <i class="fas fa-flask"></i> Специализированная пищевая продукция
-                </div>
-                <h1 style="font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 8px;">
+                <div class="card-title"><i class="fas fa-flask"></i> Специализированная пищевая продукция</div>
+                <h1 style="font-size:2rem; font-weight:700; color:var(--primary); margin-bottom:8px;">
                     Напиток сухой высокобелковый тонизирующий «БУСТЕР»
                 </h1>
-                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px;">
+                <p style="font-size:1.1rem; color:var(--text-muted); margin-bottom:20px;">
                     Новая категория функционального питания: протеиновый продукт с мягким тонизирующим действием
                     для спортсменов, специалистов с высокой нагрузкой и людей с активным образом жизни.
                 </p>
             </div>
 
-            <!-- Состав -->
             <div class="card">
                 <div class="card-title"><i class="fas fa-list-ul"></i> Состав</div>
-                <p style="font-size: 1.05rem;">
+                <p style="font-size:1.05rem;">
                     микропартикулят молочной сыворотки, молоко обезжиренное, волокно кукурузное,
                     регулятор кислотности – калий лимоннокислый (цитрат калия), таурин, кофеин.
                 </p>
             </div>
 
-            <!-- Пищевая ценность -->
             <div class="card">
                 <div class="card-title"><i class="fas fa-chart-pie"></i> Пищевая ценность</div>
                 <div class="table-wrap">
                     <table>
-                        <thead>
-                            <tr><th>Показатель</th><th>На 100 г продукта</th><th>На 1 порцию (40 г)</th></tr>
-                        </thead>
+                        <thead><tr><th>Показатель</th><th>На 100 г продукта</th><th>На 1 порцию (40 г)</th></tr></thead>
                         <tbody>
                             <tr><td>Белки, г</td><td>60,0</td><td>24,0</td></tr>
                             <tr><td>Жиры, г</td><td>5,0</td><td>2,0</td></tr>
@@ -504,14 +376,11 @@
                 </div>
             </div>
 
-            <!-- Физиологически активные компоненты -->
             <div class="card">
                 <div class="card-title"><i class="fas fa-bolt"></i> Содержание физиологически активных компонентов</div>
                 <div class="table-wrap">
                     <table>
-                        <thead>
-                            <tr><th>Компонент</th><th>На 100 г продукта</th><th>На 1 порцию (40 г)</th></tr>
-                        </thead>
+                        <thead><tr><th>Компонент</th><th>На 100 г продукта</th><th>На 1 порцию (40 г)</th></tr></thead>
                         <tbody>
                             <tr><td>Кофеин, мг</td><td>60</td><td>24</td></tr>
                             <tr><td>Таурин, мг</td><td>200</td><td>80</td></tr>
@@ -520,7 +389,6 @@
                 </div>
             </div>
 
-            <!-- Преимущества -->
             <div class="card">
                 <div class="card-title"><i class="fas fa-star"></i> Ключевые преимущества</div>
                 <ul class="list-check">
@@ -532,19 +400,18 @@
                 </ul>
             </div>
 
-            <!-- Способ приготовления, рекомендации, противопоказания -->
             <div class="grid-2col">
                 <div class="card">
                     <div class="card-title"><i class="fas fa-mug-hot"></i> Способ приготовления</div>
                     <p>Содержимое одного стока растворить в 200 мл воды температурой 20–25 °С и тщательно перемешать.</p>
-                    <div style="margin-top: 16px;">
+                    <div style="margin-top:16px;">
                         <span class="badge">Рекомендация</span>
-                        <span style="font-weight: 500;">не более трёх стоков в сутки</span>
+                        <span style="font-weight:500;">не более трёх стоков в сутки</span>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-title"><i class="fas fa-shield-alt"></i> Противопоказания</div>
-                    <ul style="list-style: disc; padding-left: 22px; color: var(--text-muted);">
+                    <ul style="list-style:disc; padding-left:22px; color:var(--text-muted);">
                         <li>Индивидуальная непереносимость компонентов продукта</li>
                         <li>Не рекомендуется детям до 18 лет, беременным и кормящим женщинам</li>
                         <li>Лицам с повышенной нервной возбудимостью, бессонницей, артериальной гипертензией</li>
@@ -552,17 +419,15 @@
                 </div>
             </div>
 
-            <!-- Условия хранения, срок годности, масса -->
             <div class="card">
                 <div class="card-title"><i class="fas fa-box"></i> Условия хранения и срок годности</div>
-                <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+                <div style="display:flex; flex-wrap:wrap; gap:24px;">
                     <div><strong>Условия хранения:</strong> в сухом месте, защищённом от прямых солнечных лучей, при температуре от 0 °С до 25 °С и относительной влажности воздуха не более 75 %.</div>
                     <div><strong>Срок годности:</strong> 36 месяцев.</div>
                     <div><strong>Масса нетто:</strong> 40 г.</div>
                 </div>
             </div>
 
-            <!-- Изготовитель, страна, документ, соответствие -->
             <div class="card">
                 <div class="card-title"><i class="fas fa-building"></i> Изготовитель</div>
                 <p><strong>ООО «МИЛК ЭНЕРДЖИ»</strong><br>
@@ -571,18 +436,18 @@
                 <p><strong>Обозначение документа:</strong> СТО 89552063–001–2026</p>
                 <hr>
                 <div class="highlight">
-                    <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 10px;"></i>
+                    <i class="fas fa-check-circle" style="color:var(--accent); margin-right:10px;"></i>
                     Продукция соответствует требованиям<br>
                     ТР ТС 021/2011 «О безопасности пищевой продукции»,<br>
                     ТР ТС 022/2011 «Пищевая продукция в части ее маркировки»,<br>
                     ТР ТС 027/2012 «О безопасности отдельных видов специализированной пищевой продукции, в том числе диетического лечебного и диетического профилактического питания».
                 </div>
-                <p class="text-small" style="margin-top: 12px;">
+                <p class="text-small" style="margin-top:12px;">
                     <i class="fas fa-qrcode"></i> Отсканируйте QR-код на упаковке для дополнительной информации о продукте, рецептах и акциях.
                 </p>
             </div>
 
-            <!-- ===== БЛОК ПОДДЕРЖКИ (самый низ) ===== -->
+            <!-- Блок поддержки -->
             <div class="card support-card">
                 <div class="support-block">
                     <div class="support-images">
@@ -599,25 +464,23 @@
                     </div>
                 </div>
             </div>
-
         </section>
 
-        <!-- ========== ВКЛАДКА 2: О НАС ========== -->
+        <!-- ===== ВКЛАДКА 2 ===== -->
         <section id="tab2" class="tab-content">
             <div class="card">
                 <div class="card-title"><i class="fas fa-users"></i> О компании</div>
-                <p style="font-size: 1.05rem;">
+                <p style="font-size:1.05rem;">
                     <strong>Общество с ограниченной ответственностью «МИЛК ЭНЕРДЖИ»</strong> — российский производитель
                     специализированного пищевого питания. Мы создаём инновационные продукты для активных людей,
                     спортсменов и специалистов, работающих в условиях высоких нагрузок.
                 </p>
-                <p style="margin-top: 12px;">
+                <p style="margin-top:12px;">
                     Наш флагманский продукт — сухой высокобелковый тонизирующий напиток «БУСТЕР» — сочетает в себе
                     чистый состав, высокое содержание белка и мягкое тонизирующее действие.
                 </p>
             </div>
 
-            <!-- Контактная информация из PDF -->
             <div class="card">
                 <div class="card-title"><i class="fas fa-address-card"></i> Контактные данные</div>
                 <div class="contact-block">
@@ -633,52 +496,33 @@
                 </div>
             </div>
 
-            <!-- Создатели: 3 фото + подписи -->
             <div class="card">
                 <div class="card-title"><i class="fas fa-camera"></i> Создатели</div>
                 <div class="creators-grid">
-                    <!-- 1 -->
                     <div class="creator-card">
-                        <div class="creator-photo">
-                            <img src="images/selivanov.jpg" alt="Селиванов В.И.">
-                        </div>
-                        <div class="creator-info">
-                            <div class="name">Селиванов В.И.</div>
-                            <div class="role">Создатель</div>
-                        </div>
+                        <div class="creator-photo"><img src="images/selivanov.jpg" alt="Селиванов В.И."></div>
+                        <div class="creator-info"><div class="name">Селиванов В.И.</div><div class="role">Создатель</div></div>
                     </div>
-                    <!-- 2 -->
                     <div class="creator-card">
-                        <div class="creator-photo">
-                            <img src="images/vecher.jpg" alt="Вечер О.В.">
-                        </div>
-                        <div class="creator-info">
-                            <div class="name">Вечер О.В.</div>
-                            <div class="role">Создатель</div>
-                        </div>
+                        <div class="creator-photo"><img src="images/vecher.jpg" alt="Вечер О.В."></div>
+                        <div class="creator-info"><div class="name">Вечер О.В.</div><div class="role">Создатель</div></div>
                     </div>
-                    <!-- 3 -->
                     <div class="creator-card">
-                        <div class="creator-photo">
-                            <img src="images/lupandina.jpg" alt="Лупандина Н.Д.">
-                        </div>
-                        <div class="creator-info">
-                            <div class="name">Лупандина Н.Д.</div>
-                            <div class="role">Руководитель</div>
-                        </div>
+                        <div class="creator-photo"><img src="images/lupandina.jpg" alt="Лупандина Н.Д."></div>
+                        <div class="creator-info"><div class="name">Лупандина Н.Д.</div><div class="role">Руководитель</div></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== ВКЛАДКА 3: ПРОДУКТ ========== -->
+        <!-- ===== ВКЛАДКА 3 ===== -->
         <section id="tab3" class="tab-content">
             <div class="card">
                 <div class="card-title"><i class="fas fa-cube"></i> О продукте</div>
-                <p style="font-size: 1.1rem; font-weight: 500; color: var(--primary);">
+                <p style="font-size:1.1rem; font-weight:500; color:var(--primary);">
                     Напиток сухой высокобелковый тонизирующий «БУСТЕР»
                 </p>
-                <p style="margin: 12px 0;">
+                <p style="margin:12px 0;">
                     <strong>Состав:</strong> микропартикулят молочной сыворотки, молоко обезжиренное,
                     волокно кукурузное, регулятор кислотности – калий лимоннокислый (цитрат калия),
                     таурин, кофеин.
@@ -690,9 +534,9 @@
                     <li>Без добавленного сахара</li>
                     <li>Срок годности: 36 месяцев</li>
                 </ul>
-                <div style="margin-top: 16px;">
+                <div style="margin-top:16px;">
                     <span class="badge">Страна происхождения</span> Россия
-                    <span class="badge" style="margin-left: 8px;">СТО 89552063–001–2026</span>
+                    <span class="badge" style="margin-left:8px;">СТО 89552063–001–2026</span>
                 </div>
             </div>
 
@@ -700,11 +544,11 @@
                 <div class="card">
                     <div class="card-title"><i class="fas fa-utensils"></i> Приготовление</div>
                     <p>Растворить содержимое одного стока (40 г) в 200 мл воды (20–25 °C), тщательно перемешать.</p>
-                    <p style="margin-top: 10px;"><strong>Рекомендация:</strong> не более 3 стоков в сутки.</p>
+                    <p style="margin-top:10px;"><strong>Рекомендация:</strong> не более 3 стоков в сутки.</p>
                 </div>
                 <div class="card">
                     <div class="card-title"><i class="fas fa-exclamation-triangle"></i> Противопоказания</div>
-                    <ul style="list-style: disc; padding-left: 22px; color: var(--text-muted);">
+                    <ul style="list-style:disc; padding-left:22px; color:var(--text-muted);">
                         <li>Индивидуальная непереносимость</li>
                         <li>Дети до 18 лет, беременные, кормящие</li>
                         <li>Повышенная нервная возбудимость, бессонница, артериальная гипертензия</li>
@@ -715,7 +559,7 @@
             <div class="card">
                 <div class="card-title"><i class="fas fa-check-double"></i> Соответствие нормативам</div>
                 <p>Продукция соответствует требованиям:</p>
-                <ul style="list-style: disc; padding-left: 22px; margin-top: 8px;">
+                <ul style="list-style:disc; padding-left:22px; margin-top:8px;">
                     <li>ТР ТС 021/2011 «О безопасности пищевой продукции»</li>
                     <li>ТР ТС 022/2011 «Пищевая продукция в части ее маркировки»</li>
                     <li>ТР ТС 027/2012 «О безопасности отдельных видов специализированной пищевой продукции»</li>
@@ -729,22 +573,20 @@
 <footer>
     <div class="container">
         <p>© 2026 ООО «МИЛК ЭНЕРДЖИ» — разработка и производство функционального питания</p>
-        <p style="font-size: 0.8rem; margin-top: 4px;">
+        <p style="font-size:0.8rem; margin-top:4px;">
             <i class="fas fa-map-pin"></i> г. Ставрополь, пр-кт Кулакова, д. 18
         </p>
     </div>
 </footer>
 
-<!-- Переключение вкладок с гарантированной прокруткой вверх -->
 <script>
     (function() {
         const nav = document.getElementById('tabNav');
         const tabs = document.querySelectorAll('.tab-content');
 
         function activateTab(tabId) {
-            // Скрыть все вкладки
+            // Переключение вкладок
             tabs.forEach(t => t.classList.remove('active'));
-            // Показать нужную
             const target = document.getElementById(tabId);
             if (target) target.classList.add('active');
 
@@ -754,28 +596,15 @@
                 btn.classList.toggle('active', btn.dataset.tab === tabId);
             });
 
-            // ===== ГАРАНТИРОВАННАЯ ПРОКРУТКА ВВЕРХ =====
-            // Функция, которая выполняет прокрутку
-            function scrollToTop() {
-                // Способ 1: стандартный метод
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                // Способ 2: для старых браузеров (и как резерв)
+            // Прокрутка вверх – один раз, с небольшой задержкой для обновления DOM
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                // Резерв для старых браузеров
                 document.documentElement.scrollTop = 0;
                 document.body.scrollTop = 0;
-                // Способ 3: прокрутка к элементу <main>
-                const mainEl = document.querySelector('main');
-                if (mainEl) {
-                    mainEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-
-            // Выполняем прокрутку несколько раз с задержкой
-            scrollToTop();                     // сразу
-            setTimeout(scrollToTop, 100);      // через 0.1 сек
-            setTimeout(scrollToTop, 300);      // через 0.3 сек
+            }, 50);
         }
 
-        // Клик по кнопкам навигации
         nav.addEventListener('click', (e) => {
             const btn = e.target.closest('button');
             if (!btn) return;
@@ -786,7 +615,7 @@
             }
         });
 
-        // Обработка при загрузке и при изменении истории
+        // Обработка по умолчанию
         const hash = window.location.hash.replace('#', '');
         if (hash && document.getElementById(hash)) {
             activateTab(hash);
