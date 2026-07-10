@@ -6,6 +6,7 @@
     <title>БУСТЕР — высокобелковый тонизирующий напиток</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* ===== ВСЕ СТИЛИ ОСТАЮТСЯ БЕЗ ИЗМЕНЕНИЙ ===== */
         * {
             margin: 0;
             padding: 0;
@@ -585,26 +586,24 @@
         const tabs = document.querySelectorAll('.tab-content');
 
         function activateTab(tabId) {
-            // Переключение вкладок
+            // 1. Сначала мгновенно прокручиваем страницу вверх
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+
+            // 2. Затем переключаем вкладки (контент изменит высоту, но ползунок уже наверху)
             tabs.forEach(t => t.classList.remove('active'));
             const target = document.getElementById(tabId);
             if (target) target.classList.add('active');
 
-            // Обновить активную кнопку
+            // 3. Обновляем активную кнопку
             const buttons = nav.querySelectorAll('button');
             buttons.forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.tab === tabId);
             });
-
-            // Прокрутка вверх – один раз, с небольшой задержкой для обновления DOM
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-                // Резерв для старых браузеров
-                document.documentElement.scrollTop = 0;
-                document.body.scrollTop = 0;
-            }, 50);
         }
 
+        // Обработка кликов
         nav.addEventListener('click', (e) => {
             const btn = e.target.closest('button');
             if (!btn) return;
@@ -615,7 +614,7 @@
             }
         });
 
-        // Обработка по умолчанию
+        // При загрузке
         const hash = window.location.hash.replace('#', '');
         if (hash && document.getElementById(hash)) {
             activateTab(hash);
@@ -624,6 +623,7 @@
             if (firstTab) activateTab(firstTab.id);
         }
 
+        // При нажатии назад/вперёд
         window.addEventListener('popstate', () => {
             const h = window.location.hash.replace('#', '');
             if (h && document.getElementById(h)) {
